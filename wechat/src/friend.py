@@ -9,3 +9,4 @@ def getFriends(remark_name=''):
 
 def getImpage(self):
     pass
+
