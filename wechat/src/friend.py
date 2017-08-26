@@ -2,10 +2,15 @@
 import itchat
 
 
-def getFriends(remark_name=''):
-    friend = itchat.search_friends(remarkName=remark_name)
+def getFriends(name=''):
+    friend = itchat.search_friends(name=name)
     return friend
 
 
 def getImpage(self):
     pass
+
+
+def getChatroom(name=''):
+    room = itchat.search_chatrooms(name=name)
+    return room

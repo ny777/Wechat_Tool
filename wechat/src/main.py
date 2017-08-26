@@ -3,7 +3,7 @@ import sys
 import friend
 import itchat
 import threading
-import autoreply  # 虽然没有使用，但是必须引用否则线程启动无法调用
+import autoreply
 
 
 def main():
@@ -17,14 +17,21 @@ def main():
         elif 'logout' == command:
             print itchat.logout()['BaseResponse']['RawMsg']
         elif 'login' == command:
-            itchat.auto_login(hotReload=True, enableCmdQR=True)
+            itchat.auto_login(hotReload=True, enableCmdQR=2)
         elif 'signin' == command:
             itchat.login(enableCmdQR=2)
         elif 'getfriend' == command:
-            remark_name = raw_input('RemarkName:')
-            pal = friend.getFriends(remark_name)
+            name = raw_input('Name:')
+            pal = friend.getFriends(name)
             if 0 != len(pal):
                 print pal
+            else:
+                print 'Find Nothing'
+        elif 'getchatroom' == command:
+            name = raw_input('Name:')
+            room = friend.getChatroom(name)
+            if 0 != len(room):
+                print room[0]
             else:
                 print 'Find Nothing'
         elif 'autoreply' == command:

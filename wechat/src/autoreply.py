@@ -3,6 +3,7 @@ import requests
 import itchat
 from itchat.content import *
 import time
+import friend
 
 
 def getResponse(msg):
@@ -34,8 +35,8 @@ def autoReplyForFriend(msg):
 
 @itchat.msg_register(TEXT, isFriendChat=False, isGroupChat=True, isMpChat=False)
 def autoReplyForGroup(msg):
-    text = msg['Text']
-    print msg
-    # reply = '我是自动回复机器人: ' + getResponse(text)['text']
-    # time.sleep(0.1)
-
+    if '13tumaoshimijuanroubingspanclassemojiemoji1f367span' == msg['User']['PYQuanPin']:
+        text = msg['Text']
+        reply = '我是自动回复机器人: ' + getResponse(text)['text']
+        time.sleep(0.1)
+        return reply
