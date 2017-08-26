@@ -3,7 +3,7 @@ import sys
 import friend
 import itchat
 import threading
-import autoreply  # 虽然没有使用，但是必须引用否则线程启动无法调用
+import autoreply  
 
 
 def main():
