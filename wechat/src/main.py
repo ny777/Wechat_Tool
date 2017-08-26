@@ -11,14 +11,14 @@ def main():
     sys.setdefaultencoding('utf8')  # 虽然报红但是有用
     while True:
         command = raw_input('Command:')
-        if 'exit' == command:
+        if 'exit' == command:  # 退出
             print itchat.logout()['BaseResponse']['RawMsg']
             sys.exit()
-        elif 'logout' == command:
+        elif 'logout' == command:  # 登出
             print itchat.logout()['BaseResponse']['RawMsg']
-        elif 'login' == command:
+        elif 'login' == command:  # 登陆
             itchat.auto_login(hotReload=True, enableCmdQR=2)
-        elif 'signin' == command:
+        elif 'signin' == command:  # 登陆
             itchat.login(enableCmdQR=2)
         elif 'getfriend' == command:
             name = raw_input('Name:')
