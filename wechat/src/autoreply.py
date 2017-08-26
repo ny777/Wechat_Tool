@@ -7,7 +7,7 @@ from itchat.content import *
 def getResponse(msg):
     api_url = 'http://www.tuling123.com/openapi/api'
     data = {
-        'key': '0073e80d714e460d98b7cf5c605cb812',
+        'key': '这里换成图灵机器人key',
         'info': msg,
         'userid': 'ny',
     }
