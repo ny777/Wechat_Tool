@@ -10,7 +10,7 @@ def main():
     reload(sys)
     sys.setdefaultencoding('utf8')  # 虽然报红但是有用
     while True:
-        command = raw_input("Command:")
+        command = raw_input('Command:')
         if 'exit' == command:
             print itchat.logout()['BaseResponse']['RawMsg']
             sys.exit()
@@ -21,9 +21,12 @@ def main():
         elif 'signin' == command:
             itchat.login()
         elif 'getfriend' == command:
-            w = friend.Friends()
-            pal = w.getFriends()
-            print pal[0]
+            remark_name = raw_input('RemarkName:')
+            pal = friend.getFriends(remark_name)
+            if 0 != len(pal):
+                print pal
+            else:
+                print 'Find Nothing'
         elif 'autoreply' == command:
             t = threading.Thread(target=itchat.run)
             t.start()

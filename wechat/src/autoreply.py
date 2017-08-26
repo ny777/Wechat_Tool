@@ -7,7 +7,7 @@ from itchat.content import *
 def getResponse(msg):
     api_url = 'http://www.tuling123.com/openapi/api'
     data = {
-        'key': '',
+        'key': '0073e80d714e460d98b7cf5c605cb812',
         'info': msg,
         'userid': 'ny',
     }
@@ -15,7 +15,15 @@ def getResponse(msg):
     return r
 
 
-@itchat.msg_register(TEXT)
-def autoReply(msg):
-    reply = '制杖者ny: ' + getResponse(msg['Text'])['text']
+@itchat.msg_register(TEXT, isFriendChat=False, isMpChat=True)
+def autoReplyForMP(msg):
+    text = msg['Text']
+    reply = getResponse(text)['text']
+    return reply
+
+
+@itchat.msg_register(TEXT, isFriendChat=True)
+def autoReplyForFriend(msg):
+    text = msg['Text']
+    reply = '我是自动回复机器人: ' + getResponse(text)['text']
     return reply
